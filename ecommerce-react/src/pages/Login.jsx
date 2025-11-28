@@ -41,9 +41,9 @@ export function Login() {
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Email</label>
+                  <label className="form-label">Email o Usuario</label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -76,10 +76,6 @@ export function Login() {
               <p className="text-center mb-0">
                 ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
               </p>
-
-              <div className="alert alert-info mt-3 small">
-                <strong>Demo:</strong> Puedes usar cualquier email y contraseña
-              </div>
             </div>
           </div>
         </div>
