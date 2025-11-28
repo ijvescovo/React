@@ -81,7 +81,7 @@ export function ProductProvider({ children }) {
     const newProduct = {
       id: Date.now(),
       ...productData,
-      author: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).name : 'Admin'
+      author: sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')).name : 'Admin'
     };
     
     const updatedProducts = [...products, newProduct];
