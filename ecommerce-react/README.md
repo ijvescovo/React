@@ -1,3 +1,35 @@
+# TechStore - E-commerce
+
+Aplicación de e-commerce desarrollada con React y Vite.
+
+## 🔐 Credenciales de Prueba
+
+### Administrador
+- **Usuario**: `admin`
+- **Contraseña**: `1234`
+
+### Usuario Regular
+- **Usuario**: `usuario@test.com`
+- **Contraseña**: `123456`
+
+## 🚀 Cómo ejecutar
+
+```bash
+npm install
+npm run dev
+```
+
+## 📦 Compilar para producción
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## Información Original
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -9,8 +9,8 @@ export function AuthProvider({ children }) {
 
   // Simular verificación de token al cargar
   useEffect(() => {
-    const savedToken = localStorage.getItem('token');
-    const savedUser = localStorage.getItem('user');
+    const savedToken = sessionStorage.getItem('token');
+    const savedUser = sessionStorage.getItem('user');
     
     if (savedToken && savedUser) {
       setToken(savedToken);
@@ -24,16 +24,19 @@ export function AuthProvider({ children }) {
     return new Promise((resolve, reject) => {
       // Simular validación
       if (email && password) {
+        // Verificar si es admin
+        const isAdmin = email === 'admin' && password === '1234';
+        
         const mockUser = {
           id: 1,
           email: email,
           name: email.split('@')[0],
-          role: 'user'
+          role: isAdmin ? 'admin' : 'user'
         };
         const mockToken = 'token_' + Math.random().toString(36).substr(2, 9);
         
-        localStorage.setItem('token', mockToken);
-        localStorage.setItem('user', JSON.stringify(mockUser));
+        sessionStorage.setItem('token', mockToken);
+        sessionStorage.setItem('user', JSON.stringify(mockUser));
         
         setToken(mockToken);
         setUser(mockUser);
@@ -46,8 +49,8 @@ export function AuthProvider({ children }) {
 
   // Logout
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('user');
     setToken(null);
     setUser(null);
   };
@@ -64,8 +67,8 @@ export function AuthProvider({ children }) {
         };
         const mockToken = 'token_' + Math.random().toString(36).substr(2, 9);
         
-        localStorage.setItem('token', mockToken);
-        localStorage.setItem('user', JSON.stringify(mockUser));
+        sessionStorage.setItem('token', mockToken);
+        sessionStorage.setItem('user', JSON.stringify(mockUser));
         
         setToken(mockToken);
         setUser(mockUser);
